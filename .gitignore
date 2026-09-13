@@ -1,12 +1,18 @@
+# Local Python environment and caches
+.venv/
 __pycache__/
 *.py[cod]
-.venv/
+.pytest_cache/
 
+# Local CMake builds
 build/
 cmake-build-*/
+CMakeUserPresets.json
 
-data/raw/*
-!data/raw/.gitkeep
+# IDE and operating system files
+.idea/
+.vscode/
+.DS_Store
 
-results/*
-!results/.gitkeep
+# Downloaded archives
+*.zip

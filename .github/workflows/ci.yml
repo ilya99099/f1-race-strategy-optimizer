@@ -1,0 +1,61 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install "cmake>=4.0,<5"
+          python -m pip install -r pace_modeling/requirements.txt
+
+      - name: Configure C++
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build C++
+        run: cmake --build build --parallel 2
+
+      - name: Run C++ tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Run Python model tests
+        run: python -m unittest discover -s pace_modeling -p 'test_*.py' -v
+
+      - name: Run calibration and export
+        run: |
+          python pace_modeling/run_analysis.py --input pace_laps.csv
+          python pace_modeling/export_cpp_config.py
+
+      - name: Run optimizer and create plot
+        env:
+          MPLBACKEND: Agg
+        run: |
+          ./build/f1_race_strategy_optimizer config/pace_model.txt
+          python plot_strategy_comparison.py
+
+      - name: Upload experiment outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-results
+          path: |
+            config/pace_model.txt
+            results/reference_laps.csv
+            results/optimized_laps.csv
+            results/strategy_comparison.png
+            pace_modeling/results/

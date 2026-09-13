@@ -1,0 +1,5 @@
+soft_base_s 97.298831078540
+soft_degradation_s_per_lap 0.118425872371
+hard_base_s 97.301790692034
+hard_degradation_s_per_lap 0.111586529818
+race_lap_gain_s_per_lap 0.070911379617

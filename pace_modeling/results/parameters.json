@@ -1,0 +1,61 @@
+{
+  "cutoff": 40,
+  "train_n": 28,
+  "test_n": 11,
+  "training_linear": {
+    "soft_base_s": 97.28165652947237,
+    "hard_base_s": 97.50089144889854,
+    "soft_degradation_s_per_lap": 0.12415072205996437,
+    "hard_degradation_s_per_lap": 0.10354825557531505,
+    "race_lap_gain_s_per_lap": 0.07663622930632126
+  },
+  "training_state": {
+    "soft_base_s": 97.28165639962792,
+    "hard_base_s": 97.50089011660563,
+    "soft_degradation_s_per_lap": 0.12415068107385287,
+    "hard_degradation_s_per_lap": 0.10354820815606301,
+    "race_lap_gain_s_per_lap": 0.07663616194402768,
+    "q": 3.0851120578444844e-09,
+    "r": 0.020101613782583735,
+    "nll": -14.967098270835232
+  },
+  "full_data_linear": {
+    "soft_base_s": 97.29883107853959,
+    "hard_base_s": 97.30179069203362,
+    "soft_degradation_s_per_lap": 0.11842587237088296,
+    "hard_degradation_s_per_lap": 0.11158652981753642,
+    "race_lap_gain_s_per_lap": 0.07091137961727272
+  },
+  "full_data_state": {
+    "soft_base_s": 97.24394658794395,
+    "hard_base_s": 97.73625656729476,
+    "soft_degradation_s_per_lap": 0.1324549544201546,
+    "hard_degradation_s_per_lap": 0.12666314342718424,
+    "race_lap_gain_s_per_lap": 0.08563309439148475,
+    "q": 0.0034826905799534348,
+    "r": 0.01294088837893958,
+    "nll": -19.269567452336286
+  },
+  "scores": {
+    "linear_prediction_s": {
+      "n": 11,
+      "mae_s": 0.1944274680030043
+    },
+    "state_fixed_prediction_s": {
+      "n": 11,
+      "mae_s": 0.1944267119526599
+    },
+    "state_online_prediction_s": {
+      "n": 11,
+      "mae_s": 0.19442597748995122
+    },
+    "baseline_fixed_prediction_s": {
+      "n": 11,
+      "mae_s": 0.3800000000000084
+    },
+    "baseline_online_prediction_s": {
+      "n": 11,
+      "mae_s": 0.11927272727272835
+    }
+  }
+}

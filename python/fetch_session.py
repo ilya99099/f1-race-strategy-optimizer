@@ -1,7 +1,5 @@
 """Resolve and save metadata for one OpenF1 session."""
 
-from __future__ import annotations
-
 import argparse
 import json
 from pathlib import Path
