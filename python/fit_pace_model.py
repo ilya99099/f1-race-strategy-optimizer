@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 INPUT_PATH = PROJECT_DIR / "data" / "processed" / "norris_pace_laps.csv"
 OUTPUT_DIR = PROJECT_DIR / "results"
 MIN_TRAIN_LAPS = 4

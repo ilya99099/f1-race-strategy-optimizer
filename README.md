@@ -76,7 +76,7 @@ reference comparison and pit-loss sensitivity results. It also writes:
 python3 -m venv .venv
 .venv/bin/python -m pip install -r pace_modeling/requirements.txt
 
-.venv/bin/python pace_modeling/run_analysis.py --input pace_laps.csv
+.venv/bin/python pace_modeling/run_analysis.py --input data/processed/bahrain_2024/pace_laps.csv
 .venv/bin/python -m unittest discover -s pace_modeling -p 'test_*.py'
 .venv/bin/python pace_modeling/export_cpp_config.py
 

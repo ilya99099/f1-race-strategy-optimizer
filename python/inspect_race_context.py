@@ -13,9 +13,9 @@ from typing import Any, Iterable
 from prepare_laps import load_json_array, parse_timestamp
 
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "bahrain_2024"
-LAPS_PATH = PROJECT_ROOT / "laps_enriched.csv"
+LAPS_PATH = PROJECT_ROOT / "data" / "processed" / "bahrain_2024" / "laps_enriched.csv"
 
 TARGET_DRIVER = 4
 FLAGGED_LAPS = {15, 26, 35, 36, 57}

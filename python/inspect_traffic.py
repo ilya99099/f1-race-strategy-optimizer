@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pandas as pd
 
-project_dir = Path(__file__).resolve().parent
-laps = pd.read_csv(project_dir / "pace_laps.csv")
+project_dir = Path(__file__).resolve().parents[1]
+laps = pd.read_csv(project_dir / "data" / "processed" / "bahrain_2024" / "pace_laps.csv")
 
 valid = laps[
     laps["is_valid_for_pace"].astype(str).str.lower().eq("true")

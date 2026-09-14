@@ -3,14 +3,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 
 SESSION_KEY = 9472
 DRIVER_NUMBER = 4
 MIN_GAP_S = 2.0
 
 
-laps = pd.read_csv(PROJECT_DIR / "pace_laps.csv")
+laps = pd.read_csv(PROJECT_DIR / "data" / "processed" / "bahrain_2024" / "pace_laps.csv")
 
 numeric_columns = [
     "session_key",

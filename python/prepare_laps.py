@@ -14,7 +14,11 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
+
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_PATH = PROJECT_ROOT / "data" / "processed" / "bahrain_2024" / "laps_enriched.csv"
+OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "bahrain_2024" / "pace_laps.csv"
 DEFAULT_INPUT_DIR = PROJECT_ROOT / "data" / "raw" / "bahrain_2024"
 DEFAULT_OUTPUT = (
     PROJECT_ROOT / "data" / "processed" / "bahrain_2024" / "laps_enriched.csv"
@@ -470,7 +474,6 @@ def main() -> None:
         "laps valid for deterministic pace fitting"
     )
     print(f"Driver {args.target_driver} exclusions: {dict(sorted(reason_counts.items()))}")
-
 
 if __name__ == "__main__":
     main()

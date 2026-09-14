@@ -1,24 +1,24 @@
 cmake_minimum_required(VERSION 4.0)
-project(f1_race_strategy_optimizer)
+project(f1_race_strategy_optimizer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(race_core
-        race_model.cpp
-        brute_force.cpp
-        dynamic_programming.cpp
-        config_io.cpp
-        results_io.cpp
+        src/race_model.cpp
+        src/brute_force.cpp
+        src/dynamic_programming.cpp
+        src/config_io.cpp
+        src/results_io.cpp
 )
 
 target_include_directories(race_core PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
 add_executable(f1_race_strategy_optimizer
-        main.cpp
+        app/main.cpp
 )
 
 target_link_libraries(f1_race_strategy_optimizer PRIVATE
@@ -26,7 +26,7 @@ target_link_libraries(f1_race_strategy_optimizer PRIVATE
 )
 
 add_executable(optimizer_tests
-        optimizer_tests.cpp
+        tests/optimizer_tests.cpp
 )
 
 target_link_libraries(optimizer_tests PRIVATE

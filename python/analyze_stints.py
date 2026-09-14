@@ -13,8 +13,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
-INPUT_PATH = Path("laps_enriched.csv")
-OUTPUT_PATH = Path("results/norris_stints.png")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INPUT_PATH = PROJECT_ROOT / "data" / "processed" / "bahrain_2024" / "laps_enriched.csv"
+OUTPUT_PATH = PROJECT_ROOT / "results" / "norris_stints.png"
 TARGET_DRIVER = 4
 OUTLIER_RESIDUAL_THRESHOLD = 0.25
 
