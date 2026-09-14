@@ -11,6 +11,9 @@ jobs:
   checks:
     runs-on: ubuntu-latest
 
+    env:
+      MPLBACKEND: Agg
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -34,20 +37,21 @@ jobs:
       - name: Run C++ tests
         run: ctest --test-dir build --output-on-failure
 
+      - name: Run preprocessing tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
       - name: Run Python model tests
         run: python -m unittest discover -s pace_modeling -p 'test_*.py' -v
 
       - name: Run calibration and export
         run: |
-          python pace_modeling/run_analysis.py --input pace_laps.csv
+          python pace_modeling/run_analysis.py --input data/processed/bahrain_2024/pace_laps.csv
           python pace_modeling/export_cpp_config.py
 
       - name: Run optimizer and create plot
-        env:
-          MPLBACKEND: Agg
         run: |
           ./build/f1_race_strategy_optimizer config/pace_model.txt
-          python plot_strategy_comparison.py
+          python python/plot_strategy_comparison.py
 
       - name: Upload experiment outputs
         uses: actions/upload-artifact@v4
